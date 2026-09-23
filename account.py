@@ -3,7 +3,7 @@ import os
 check=False
 name=input("Enter your name:\n").title().strip()
 print(f"Hello {name}! Welcome to the ATM")
-folder_path = r"D:\Coding\Projects\ATM Accounts"
+folder_path = os.path.dirname(os.path.abspath(__file__))  # Save account files next to this script
 file_path = os.path.join(folder_path, name + ".txt")  # Combine folder path and user input
 if not os.path.exists(folder_path):
     os.makedirs(folder_path)
