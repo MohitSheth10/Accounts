@@ -1,17 +1,50 @@
 # 🏧 ATM Simulation Program
 
-A lightweight **Python ATM simulator** that allows users to create accounts, set secure 6-digit PINs, and log in to their accounts using local file-based storage.  
+A lightweight **Python ATM simulator** that lets users create accounts, set secure 6-digit PINs, and log in using local file-based storage.
 Built with a focus on simplicity, input validation, and basic security logic.
 
 ---
 
 ## ⚙️ Features
 
-- 🆕 **Account Creation** — Create a new account with a personalized name  
-- 🔐 **PIN Verification** — 6-digit numeric PIN validation with retry limits  
-- 🔄 **PIN Update Option** — Change your PIN if forgotten  
-- 💾 **Local File Storage** — Saves each account as a separate text file  
-- ⚠️ **Error Handling** — Prevents invalid inputs and incorrect PIN lengths  
-- 🚪 **Account Access Control** — Limits the number of incorrect PIN attempts  
+- 🆕 **Account Creation** — Create a new account under your name
+- 🔐 **PIN Verification** — 6-digit numeric PIN, entered twice to confirm
+- 🔄 **PIN Reset** — Option to change your PIN after a wrong attempt
+- 🚪 **Attempt Limit** — Logs you out after 3 incorrect PIN attempts
+- 💾 **Local File Storage** — Each account is saved as its own `.txt` file
+- ⚠️ **Error Handling** — Uses `try` / `except` to reject non-numeric input and wrong-length PINs
 
-Uses try except
+---
+
+## 🔁 How It Works
+
+1. Enter your name.
+2. **If an account with that name exists**, enter your PIN.
+   - Wrong PIN → choose to **retry** or **change your PIN**.
+   - After 3 wrong attempts you're logged out.
+3. **If no account exists**, you're asked whether to create one. You then set and confirm a 6-digit PIN, which is saved to `<YourName>.txt`.
+
+---
+
+## ▶️ How to Run
+
+1. Install Python 3 (no extra libraries needed).
+2. Download `account.py`.
+3. Open `account.py` and change the `folder_path` line to a folder on your computer where account files should be saved, for example:
+   ```python
+   folder_path = r"C:\Users\You\ATM Accounts"
+   ```
+4. Run it:
+   ```bash
+   python account.py
+   ```
+
+---
+
+## 🧠 Planned Improvements
+
+- 💰 Balance, deposit and withdrawal options
+- 🔒 Store PINs hashed instead of as plain text
+- 📁 Save account files next to the script automatically, so no path editing is needed
+
+> ⚠️ This is a learning project. PINs are stored as plain text, so don't use a real PIN.
